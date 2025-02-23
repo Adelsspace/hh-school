@@ -6,6 +6,7 @@ from functools import wraps
 def execution_time(target_function):
     @wraps(target_function)
     def wrapper(*args, **kwargs):
+        print(f"Начало выполнения {target_function.__name__}...")
         start_time = datetime.now()
         result = target_function(*args, **kwargs)
         end_time = datetime.now()

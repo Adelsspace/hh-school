@@ -1,4 +1,5 @@
 from  utils import execution_time
+from datetime import datetime
 
 class Market:
     def __init__(self, wines: list = None, beers: list = None) -> None:
@@ -37,9 +38,24 @@ class Market:
 
         :return: list
         """
+        if from_date is None or to_date is None:
+            raise ValueError("Обе границы (from_date и to_date) должны быть указаны.")
+        
+        try:
+            from_date = datetime.strptime(from_date, "%Y-%m-%d")
+            to_date = datetime.strptime(to_date, "%Y-%m-%d")
+        except ValueError:
+            raise ValueError("Неверный формат даты. Используйте 'YYYY-MM-DD'.")
+
+        if from_date > to_date:
+            raise ValueError("from_date не может быть позже to_date.")
+
         result = []
         for drink in self.drinks.values():
-            if from_date <= drink.production_date <= to_date:
-                result.append(drink.title)
-        return result
+            if isinstance(drink.production_date, datetime) and from_date <= drink.production_date <= to_date:
+                result.append({
+                    'title': drink.title,
+                    'production_date': drink.production_date.strftime('%Y-%m-%d')
+                })
 
+        return result

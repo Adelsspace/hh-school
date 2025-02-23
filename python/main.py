@@ -21,3 +21,15 @@ if __name__ == '__main__':
     print(market.has_drink_with_title("Beer alco")) 
     print(market.get_drinks_sorted_by_title())
     print(market.get_drinks_by_production_date("2025-02-02", "2025-03-03"))
+
+    drink1 = Beer()
+    print(drink1)
+    
+    drink2 = Beer(title="Dragon 0%", production_date="2025-01-11")
+    print(drink2) 
+
+    drink3 = Beer(production_date="2025-01-11")
+    print(drink3) 
+
+   
+
