@@ -1,0 +1,26 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  input {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  .saved-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+}
+.hint {
+  padding-bottom: 10px;
+}
+.blacklist-title {
+  padding-top: 10px;
+  font-weight: bold;
+}
